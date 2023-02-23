@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/02/14 16:18:35 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/02/23 17:00:41 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
 	while (i <= argc)
 	{
+		if (i == 0)
+			prin
 		printf("%s\n", argv[i++]);
 	}
 }
