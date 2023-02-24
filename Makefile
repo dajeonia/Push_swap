@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/02/23 17:11:59 by dajeon           ###   ########.fr        #
+#    Updated: 2023/02/24 14:02:13 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ clean :
 	$(RM) $(OBJS)
 
 fclean : 
-	$(MAKE) cleafn
+	$(MAKE) clean
 	$(RM) $(NAME)
 
 re : 

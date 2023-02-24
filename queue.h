@@ -6,25 +6,20 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/02/16 09:00:26 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/02/24 11:57:15 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-typedef struct s_stack
+typedef struct	s_queue
 {
-	void			*data;
-	struct s_stack	*prev;
-} t_stack;
-
-t_stack	*ft_stacknew(void *data);
-void	ft_stackclear(t_stack **head, void (*del)(void *));
-void	ft_iter(t_stack *head, void (*f)(void *));
-void	ft_pop(t_stack **head, void (*del)(void *));
-void	ft_push(t_stack **head, void *data);
+	void			*content;
+	struct s_cque	*prev;
+	struct s_cque	*next;
+}				t_queue;
 
 #endif
