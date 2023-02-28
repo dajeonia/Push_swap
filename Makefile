@@ -6,45 +6,63 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/02/24 14:02:13 by dajeon           ###   ########.fr        #
+#    Updated: 2023/02/28 20:24:12 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKE = make
+NAME = a.out
+SOURCES = main.c queue.c 
+INCLUDES = queue.h
 
+# **************************************************************************** #
+
+SRCS = $(SOURCES)
+OBJS = $(SOURCES:.c=.o)
+INCS = $(INCLUDES)
+
+SRC_DIR = sources
+OBJ_DIR = objects
+INC_DIR = includes
+
+SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
+OBJS := $(addprefix $(OBJ_DIR)/, $(OBJS))
+INCS := $(addprefix $(INC_DIR)/, $(INCS))
+
+# **************************************************************************** #
+
+MAKE = make
 CC = gcc
 AR = ar
 RM = rm
 
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = crus
 RMFLAGS = -rf
 
-OBJ_DIR = objs
-SRC_DIR = srcs
-
-SRCS = main.c
-OBJS = $(SRCS:.c=.o)
-INCLUDES = includes
-
-# **************************************************************************** #
+# Commands ******************************************************************* #
 
 all : $(NAME)
+	./$(NAME)
 
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(RMFLAGS) $(OBJS)
 
 fclean : 
 	$(MAKE) clean
-	$(RM) $(NAME)
+	$(RM) $(RMFLAGS) $(NAME)
 
 re : 
 	$(MAKE) fclean
 	$(MAKE) all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
+
+# Dependency ***************************************************************** #
+
+$(NAME): $(OBJS) $(INCS)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INC_DIR) -o $(NAME) 
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $< -c -I $(INC_DIR)  -o $@
 
 # **************************************************************************** #
-
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -I $(INCLUDES)
