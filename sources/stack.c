@@ -6,73 +6,39 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/04 10:58:14 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:59:20 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "stack.h"
 
-t_stack	*ft_stnew(void *content)
+t_stack	*ft_stnew(void *data)
 {
 	t_stack	*node;
 	
 	node = (t_stack *)malloc(sizeof(t_stack *));
 	if (node)
 	{
-		node->content = content;
+		node->data = data;
 		node->prev = node;
 		node->next = node;
 	}
 	return (node);
 }
 
-#include <stdio.h>
-void	ft_stlist(t_stack *node)
-{
-	static int	i;
-
-	printf("NODE[%d]-------------------------------\n", i);
-	printf("NODE   : %p\n", node);
-	printf("PREV   : %p\n", node->prev);
-	printf("NEXT   : %p\n", node->next);
-	printf("CONTENT: %d\n", *(int *)(node->content));
-	printf("CONT(P): %p\n", node->content);
-	i++;
-}
-
-void	ft_stpush(t_stack **head, void *content)
+void	ft_stpush(t_stack **head, void *data)
 {
 	t_stack	*node;
-	t_stack	*h;
 
-	h = *head;
-	node = (t_stack *)malloc(sizeof(t_stack *));
+	node = ft_stnew(data);
 	if (node)
 	{
-		node->content = content;
-		node->prev = h->prev;
-		node->next = h;
+		node->prev = (*head)->prev;
+		node->next = *head;
 		(node->prev)->next = node;
 		(node->next)->prev = node;
 		*head = node;
 	}
-}
-
-void	ft_stpop(t_stack **head, void (*del)(void *))
-{
-	t_stack	*cur;
-
-	cur = *head;
-	if (cur == cur->next)
-		*head = NULL;
-	else
-	{
-		(cur->next)->prev = cur->prev;
-		(cur->prev)->next = cur->next;
-		*head = cur->next;
-	}
-	del(cur->content);
-	free(cur);
 }
 
 void	ft_stiter(t_stack *head, void (*function)(t_stack *))
@@ -85,6 +51,27 @@ void	ft_stiter(t_stack *head, void (*function)(t_stack *))
 		function(cur);
 		cur = cur->next;
 		if (cur == head)
-			break;
+			break ;
 	}
+}
+
+void	*ft_stpop(t_stack **head)
+{
+	t_stack	*cur;
+	void	*temp;
+
+	temp = (*head)->data;
+	cur = *head;
+	if (cur == cur->next)
+		*head = NULL;
+	else
+	{
+		(cur->next)->prev = cur->prev;
+		(cur->prev)->next = cur->next;
+		*head = cur->next;
+	}
+	free(cur);
+	return (temp);
+//	del(cur->data);
+//	free(cur);
 }
