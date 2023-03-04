@@ -6,13 +6,13 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/02/28 20:24:12 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/03 10:20:14 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
-SOURCES = main.c queue.c 
-INCLUDES = queue.h
+SOURCES = main.c stack.c 
+INCLUDES = stack.h
 
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ all : $(NAME)
 	./$(NAME)
 
 clean :
-	$(RM) $(RMFLAGS) $(OBJS)
+	$(RM) $(RMFLAGS) */*.o *.o
 
 fclean : 
 	$(MAKE) clean

@@ -6,12 +6,12 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/02/28 20:24:03 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/03 10:28:59 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdio.h>
-# include "queue.h"
+# include "stack.h"
 
 int	ft_strlen(char *str)
 {
@@ -29,9 +29,9 @@ void	test(void *a)
 }
 
 /*
-void	ft_iter(t_queue *head, void (*f)(void *))
+void	ft_iter(t_stack *head, void (*f)(void *))
 {
-	t_queue	*end;
+	t_stack	*end;
 
 	end = head;
 	while (1)
@@ -53,7 +53,8 @@ int	main(void)
 {
 	int a[15];
 	int	i;
-	t_queue *head;
+	t_stack *head;
+	t_stack *cur;
 
 	i = 0;
 	printf("---------------------------------------\n");
@@ -64,22 +65,17 @@ int	main(void)
 		i++;
 	}
 	printf("\n");
+	printf("---------------------------------------\n");
 	i = 0;
 	while (i < 9)
 	{
 		if (i == 0)
-			head = ft_quenew(&a[i]);
+			head = ft_stnew(&a[i]);
 		else
-			ft_queadd(&head, &a[i]);
-		printf("---------------------------------------\n");
-		printf("NODE   : %p\n", head);
-		printf("cont(*): %p\n", (int *)(head->content));
-		printf("content: %d\n", *(int *)(head->content));
-		printf("prev   : %p\n", head->prev);
-		printf("next   : %p\n", head->next);
+			ft_stpush(&head, &a[i]);
+		cur = head;
 		i++;
 	}
-	printf("---------------------------------------\n");
-	printf("\n");
+	ft_stiter(head, ft_stlist);
 	return (0);
 }
