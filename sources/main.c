@@ -6,64 +6,53 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/04 14:37:37 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/19 20:38:07 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdio.h>
 # include "stack.h"
+# include "../libft/libft.h"
 
-void	ft_stlist(t_stack *node);
-void	get(int *a, int count);
-void	push(t_stack **head, int *a, int count);
+void	ft_printst(t_stack *node);
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_stack *head;
-	int		a[10];
-	get(a, 10);
-	head = ft_stnew(&a[0]);
-	push(&head, a, 10);
-	int i;
-	i = 0;
-	while (i++ < 5)
-		ft_stpop(&head, free);
-	return (0);
-}
+	int		i;
+	t_stack	*head;
+	int		*temp;
 
-void	ft_stlist(t_stack *node)
-{
-	static int	i=1;
-
-	printf("NODE[%d]-------------------------------\n", i);
-	printf("NODE   : %p\n", node);
-	printf("PREV   : %p\n", node->prev);
-	printf("NEXT   : %p\n", node->next);
-	printf("DATA   : %d\n", *(int *)(node->data));
-	printf("CONT(P): %p\n", &(node->data));
-	i++;
-}
-
-void	get(int *a, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
+	i = 1;
+	while (i < argc)
 	{
-		a[i] = i * 5;
+		temp = (int *)malloc(sizeof(int));
+		*temp = ft_atoi(argv[i]);
+		if (i == 1)
+		{
+			head = ft_stnew(temp);
+		}
+		else
+			ft_stpush(&head, temp);
 		i++;
 	}
+	if (head == NULL)
+		return 0;
+	else
+		ft_stiter(head, ft_printst);
 }
 
-void	push(t_stack **head, int *a, int count)
+void	ft_malloc(size_t a)
 {
-	int	i;
+	int	*b;
 
-	i = 0;
-	while (i < count)
-	{
-		ft_stpush(head, &a[i]);
-		i++;
-	}
+	b = (int *)malloc(sizeof(a));
+	*b = 5;
+	ft_putnbr_fd(*b, 1)
+}
+
+void	ft_printst(t_stack *node)
+{
+	t_stack *hel;
+	hel = node;
+	ft_putnbr_fd(*(int *)(node->data), 1);
 }

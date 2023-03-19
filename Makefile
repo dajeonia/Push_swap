@@ -6,13 +6,15 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/04 12:52:08 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/19 20:20:32 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 SOURCES = main.c stack.c 
 INCLUDES = stack.h
+LIB = ft
+LIBDIR = libft
 
 # **************************************************************************** #
 
@@ -38,6 +40,8 @@ RM = rm
 CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = crus
 RMFLAGS = -rf
+LDFLAGS = -L $(LIBDIR)
+LDLIBS = -l $(LIB)
 
 # Commands ******************************************************************* #
 
@@ -59,8 +63,8 @@ re :
 
 # Dependency ***************************************************************** #
 
-$(NAME): $(OBJS) $(INCS)
-	$(CC) $(CFLAGS) $(OBJS) -I $(INC_DIR) -o $(NAME) 
+$(NAME): $(OBJS) $(INCS) 
+	$(CC) $(CFLAGS) $(OBJS) -I $(INC_DIR) -o $(NAME) $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $< -c -I $(INC_DIR)  -o $@

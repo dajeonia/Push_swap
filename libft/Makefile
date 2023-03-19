@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 19:15:07 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/04 12:39:18 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/17 20:00:27 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,12 +42,13 @@ CFLAGS = -Wall -Werror -Wextra
 ARFLAGS = crus
 RMFLAGS = -rf
 
+OBJECTS_BONUS = $(SOURCES:.c=.o) $(SOURCES_BONUS:.c=.o)
+OBJECTS = $(SOURCES:.c=.o)
 ifdef BONUS
-	OBJS := $(addprefix $(SOURCES:.c=.o), $(SOURCES_BONUS:.c=.o))
+	OBJS := $(OBJECTS_BONUS)
 else
-	OBJS := $(SRCS:.c.o)
+	OBJS := $(OBJECTS)
 endif
-
 
 # **************************************************************************** #
 
@@ -57,7 +58,7 @@ bonus :
 	make BONUS=1 $(NAME)
 
 clean : 
-	$(RM) $(RMFLAGS) $(OBJS)
+	$(RM) $(RMFLAGS) $(OBJECTS_BONUS)
 
 fclean : 
 	$(MAKE) clean

@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/04 14:59:20 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/19 20:35:35 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*ft_stnew(void *data)
 {
 	t_stack	*node;
 	
-	node = (t_stack *)malloc(sizeof(t_stack *));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	if (node)
 	{
 		node->data = data;
@@ -44,8 +44,10 @@ void	ft_stpush(t_stack **head, void *data)
 void	ft_stiter(t_stack *head, void (*function)(t_stack *))
 {
 	t_stack *cur;
+	int		i;
 
 	cur = head;
+	i = 0;
 	while (1)
 	{
 		function(cur);
@@ -70,8 +72,7 @@ void	*ft_stpop(t_stack **head)
 		(cur->prev)->next = cur->next;
 		*head = cur->next;
 	}
+	free(cur->data);
 	free(cur);
 	return (temp);
-//	del(cur->data);
-//	free(cur);
 }
