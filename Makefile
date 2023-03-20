@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/20 16:56:30 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/20 17:59:14 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,20 @@ NAME = a.out
 SOURCES = main.c stack.c 
 INCLUDES = stack.h
 LIBFT = libft.a
-LIB = ft
+LIBFTPRINTF = libftprintf.a
+
+LIB = ft 
 LIB_DIR = libft
+
+LIB2 = ftprintf
+LIB_DIR2 = ft_printf
 
 # **************************************************************************** #
 
 SRCS = $(SOURCES)
 OBJS = $(SOURCES:.c=.o)
 INCS = $(INCLUDES)
-LDLIBS = -l $(LIB)
+LDLIBS = -l $(LIB) $(LIB2)
 
 SRC_DIR = sources
 OBJ_DIR = objects
@@ -31,6 +36,7 @@ SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJS))
 INCS := $(addprefix $(SRC_DIR)/, $(INCS))
 LIBFT := $(addprefix $(LIB_DIR)/, $(LIBFT))
+LIBFTPRINTF := $(addprefix $(LIB_DIR2)/, $(LIBFTPRINTF))
 
 # **************************************************************************** #
 
@@ -42,7 +48,8 @@ RM = rm
 CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = crus
 RMFLAGS = -rf
-LDFLAGS = -L $(LIB_DIR)
+
+LDFLAGS = -L $(LIB_DIR) $(LIB_DIR2)
 
 
 # Commands ******************************************************************* #
@@ -50,7 +57,7 @@ LDFLAGS = -L $(LIB_DIR)
 all : $(NAME)
 
 clean :
-	$(RM) $(RMFLAGS) $(OBJ_DIR) */*.a */*.o
+	$(RM) $(RMFLAGS) $(OBJ_DIR) */*.a */*.o */*/*.o
 
 fclean : 
 	$(MAKE) clean
@@ -64,11 +71,14 @@ re :
 
 # Dependency ***************************************************************** #
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -I $(SRC_DIR) -o $(NAME) $(LDFLAGS) $(LDLIBS)
+$(NAME): $(OBJS) $(LIBFT) $(LIBFTPRINTF)
+	$(CC) $(CFLAGS) $(OBJS) -I $(SRC_DIR) -o $(NAME) -L $(LIB_DIR) -L $(LIB_DIR2) -l $(LIB) -l $(LIB2)
 
 $(LIBFT): 
 	$(MAKE) -j3 -C $(LIB_DIR) all
+
+$(LIBFTPRINTF): 
+	$(MAKE) -j3 -C $(LIB_DIR2) all
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
 	$(CC) $(CFLAGS) $< -c -I $(SRC_DIR) -o $@

@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/15 20:39:45 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:43:44 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "../libft/libft.h"
+# include "../ft_printf/sources/ft_printf.h"
 
 typedef struct	s_stack
 {

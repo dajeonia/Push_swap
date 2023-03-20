@@ -6,13 +6,12 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/20 16:57:46 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:44:38 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdio.h>
 # include "stack.h"
-# include "../libft/libft.h"
 
 void	ft_printst(t_stack *node);
 
@@ -43,7 +42,5 @@ int	main(int argc, char **argv)
 
 void	ft_printst(t_stack *node)
 {
-	t_stack *hel;
-	hel = node;
-	ft_putnbr_fd(*(int *)(node->data), 1);
+	ft_printf("%d\n", *(int *)(node->data));
 }
