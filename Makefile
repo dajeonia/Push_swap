@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/20 15:54:36 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/20 16:56:30 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ OBJ_DIR = objects
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJS))
 INCS := $(addprefix $(SRC_DIR)/, $(INCS))
+LIBFT := $(addprefix $(LIB_DIR)/, $(LIBFT))
 
 # **************************************************************************** #
 
@@ -47,10 +48,9 @@ LDFLAGS = -L $(LIB_DIR)
 # Commands ******************************************************************* #
 
 all : $(NAME)
-	./$(NAME)
 
 clean :
-	$(RM) $(RMFLAGS) */*.o */*.a
+	$(RM) $(RMFLAGS) $(OBJ_DIR) */*.a */*.o
 
 fclean : 
 	$(MAKE) clean
@@ -64,13 +64,16 @@ re :
 
 # Dependency ***************************************************************** #
 
-$(NAME): $(OBJS) $(INCS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) -I $(SRC_DIR) -o $(NAME) $(LDFLAGS) $(LDLIBS)
 
 $(LIBFT): 
-	make -j3 -C ./libft all
+	$(MAKE) -j3 -C $(LIB_DIR) all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $< -c -I $(SRC_DIR)  -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
+	$(CC) $(CFLAGS) $< -c -I $(SRC_DIR) -o $@
+
+$(OBJ_DIR):
+	mkdir $(OBJ_DIR)
 
 # **************************************************************************** #
