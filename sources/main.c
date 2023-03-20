@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/19 20:38:07 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:52:14 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,6 @@ int	main(int argc, char **argv)
 		return 0;
 	else
 		ft_stiter(head, ft_printst);
-}
-
-void	ft_malloc(size_t a)
-{
-	int	*b;
-
-	b = (int *)malloc(sizeof(a));
-	*b = 5;
-	ft_putnbr_fd(*b, 1)
 }
 
 void	ft_printst(t_stack *node)

@@ -6,29 +6,30 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/19 20:20:32 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/20 15:54:36 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 SOURCES = main.c stack.c 
 INCLUDES = stack.h
+LIBFT = libft.a
 LIB = ft
-LIBDIR = libft
+LIB_DIR = libft
 
 # **************************************************************************** #
 
 SRCS = $(SOURCES)
 OBJS = $(SOURCES:.c=.o)
 INCS = $(INCLUDES)
+LDLIBS = -l $(LIB)
 
 SRC_DIR = sources
 OBJ_DIR = objects
-INC_DIR = includes
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS := $(addprefix $(OBJ_DIR)/, $(OBJS))
-INCS := $(addprefix $(INC_DIR)/, $(INCS))
+INCS := $(addprefix $(SRC_DIR)/, $(INCS))
 
 # **************************************************************************** #
 
@@ -40,8 +41,8 @@ RM = rm
 CFLAGS = -Wall -Wextra -Werror
 ARFLAGS = crus
 RMFLAGS = -rf
-LDFLAGS = -L $(LIBDIR)
-LDLIBS = -l $(LIB)
+LDFLAGS = -L $(LIB_DIR)
+
 
 # Commands ******************************************************************* #
 
@@ -49,7 +50,7 @@ all : $(NAME)
 	./$(NAME)
 
 clean :
-	$(RM) $(RMFLAGS) */*.o *.o
+	$(RM) $(RMFLAGS) */*.o */*.a
 
 fclean : 
 	$(MAKE) clean
@@ -63,10 +64,13 @@ re :
 
 # Dependency ***************************************************************** #
 
-$(NAME): $(OBJS) $(INCS) 
-	$(CC) $(CFLAGS) $(OBJS) -I $(INC_DIR) -o $(NAME) $(LDFLAGS) $(LDLIBS)
+$(NAME): $(OBJS) $(INCS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) -I $(SRC_DIR) -o $(NAME) $(LDFLAGS) $(LDLIBS)
+
+$(LIBFT): 
+	make -j3 -C ./libft all
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $< -c -I $(INC_DIR)  -o $@
+	$(CC) $(CFLAGS) $< -c -I $(SRC_DIR)  -o $@
 
 # **************************************************************************** #
