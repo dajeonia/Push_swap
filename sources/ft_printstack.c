@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   ft_printstack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/24 20:42:17 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/24 20:34:44 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/24 20:39:26 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
+# include "push_swap.h"
 
-# include <stdlib.h>
-
-typedef struct	s_stack
+static void	ft_printnode(t_stack *node)
 {
-	void			*data;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}				t_stack;
+	ft_printf("%d\n", *(int *)(node->data));
+}
 
-t_stack	*ft_stnew(void *data);
-void	ft_stpush(t_stack **head, void *data);
-void	ft_stpop(t_stack **head);
-void	ft_stiter(t_stack *head, void (*function)(t_stack *));
-void	ft_stclear(t_stack **head);
-
-#endif
+void	ft_printstack(t_stack *head)
+{
+	if (head == NULL)
+		ft_printf("The Stack is Empty!\n");
+	else
+		ft_stiter(head, ft_printnode);
+}

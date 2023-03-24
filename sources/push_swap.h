@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/24 20:42:17 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/24 17:44:28 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/24 20:38:17 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
-typedef struct	s_stack
-{
-	void			*data;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}				t_stack;
+# include "../libft/libft.h"
+# include "../ft_printf/sources/ft_printf.h"
+# include "stack.h"
 
-t_stack	*ft_stnew(void *data);
-void	ft_stpush(t_stack **head, void *data);
-void	ft_stpop(t_stack **head);
-void	ft_stiter(t_stack *head, void (*function)(t_stack *));
-void	ft_stclear(t_stack **head);
+void	ft_printstack(t_stack *head);
 
 #endif
