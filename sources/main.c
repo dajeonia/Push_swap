@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:22:40 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 19:28:15 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ int	main(int argc, char **argv)
 	ft_printst_ab(ab);
 	while (i++ < 5)
 	{
-		pb(ab);
+		ra(ab);
 		ft_printst_ab(ab);
 	}
-	pa(ab);
-	ft_printst_ab(ab);
+	i = 0;
+	while (i++ < 2)
+	{
+		rra(ab);
+		ft_printst_ab(ab);
+	}
 	return (0);
 }
 

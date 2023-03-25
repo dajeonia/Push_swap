@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*  rrotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 19:26:21 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:26:22 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 18:55:02 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 19:27:19 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-static void	ft_push_to(t_stack **from, t_stack **to)
+static void	ft_rrotate(t_stack **head)
 {
-	if (*from)
-		ft_stpush(to, ft_stpop(from));
-	else
-		ft_printf("ERROR: The Stack is Empty\n");
+	if (*head)
+		*head = (*head)->prev;
+//	else
+//		ft_printf("ERROR: The Stack is Empty\n");
 }
 
-void	pa(t_stack **ab)
+void	rra(t_stack **ab)
 {
-	ft_push_to(&ab[1], &ab[0]);
+	ft_rrotate(&ab[0]);
 }
 
-void	pb(t_stack **ab)
+void	rrb(t_stack **ab)
 {
-	ft_push_to(&ab[0], &ab[1]);
+	ft_rrotate(&ab[1]);
+}
+void	rrr(t_stack **ab)
+{
+	rra(ab);
+	rrb(ab);
 }
