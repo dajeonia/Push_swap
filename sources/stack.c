@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 11:35:10 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 11:59:26 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void	ft_stiter(t_stack *head, void (*function)(t_stack *))
 	}
 }
 
-void	ft_stpop(t_stack **head)
+void	*ft_stpop(t_stack **head)
 {
 	t_stack	*cur;
+	void	*pop;
 
 	cur = *head;
 	if (cur == cur->next)
@@ -75,12 +76,13 @@ void	ft_stpop(t_stack **head)
 		(cur->prev)->next = cur->next;
 		*head = cur->next;
 	}
-	free(cur->data);
+	pop = cur->data;
 	free(cur);
+	return (pop);
 }
 
 void	ft_stclear(t_stack **head)
 {
 	while (*head != NULL)
-		ft_stpop(head);
+		free(ft_stpop(head));
 }

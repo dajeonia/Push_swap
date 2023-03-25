@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 11:36:16 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 11:59:58 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,34 @@
 
 t_stack	*ft_parser(int argc, char **argv);
 
+void	pa(t_stack **a, t_stack **b)
+{
+	ft_stpush(b, ft_stpop(a));
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
+	t_stack	*b;
 
 	a = ft_parser(argc, argv);
+	b = ft_parser(argc, argv);
+	ft_printf("[a]\n");
 	ft_printstack(a);
-	ft_stpop(&a);
+	ft_printf("----------------------------------------\n");
+	ft_printf("[b]\n");
+	ft_printstack(b);
+	ft_printf("----------------------------------------\n");
+	pa(&a, &b);
 	ft_printf("다시\n");
+	ft_printf("[a]\n");
 	ft_printstack(a);
+	ft_printf("----------------------------------------\n");
+	ft_printf("[b]\n");
+	ft_printstack(b);
+	ft_printf("----------------------------------------\n");
 	return (0);
 }
-
-/*
-void	pa(t_stack *a, t_stack *b)
-{
-	int	temp;
-
-	temp = *(int *)(t_stack->node);
-	
-}
-*/
 
 t_stack	*ft_parser(int argc, char **argv)
 {
