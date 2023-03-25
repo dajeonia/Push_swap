@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 11:59:58 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 19:22:40 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,22 @@
 
 t_stack	*ft_parser(int argc, char **argv);
 
-void	pa(t_stack **a, t_stack **b)
-{
-	ft_stpush(b, ft_stpop(a));
-}
-
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*ab[2];
+	int		i;
 
-	a = ft_parser(argc, argv);
-	b = ft_parser(argc, argv);
-	ft_printf("[a]\n");
-	ft_printstack(a);
-	ft_printf("----------------------------------------\n");
-	ft_printf("[b]\n");
-	ft_printstack(b);
-	ft_printf("----------------------------------------\n");
-	pa(&a, &b);
-	ft_printf("다시\n");
-	ft_printf("[a]\n");
-	ft_printstack(a);
-	ft_printf("----------------------------------------\n");
-	ft_printf("[b]\n");
-	ft_printstack(b);
-	ft_printf("----------------------------------------\n");
+	ab[0] = ft_parser(argc, argv);
+	ab[1] = NULL;
+	i = 0;
+	ft_printst_ab(ab);
+	while (i++ < 5)
+	{
+		pb(ab);
+		ft_printst_ab(ab);
+	}
+	pa(ab);
+	ft_printst_ab(ab);
 	return (0);
 }
 
@@ -62,7 +52,7 @@ t_stack	*ft_parser(int argc, char **argv)
 		}
 		else
 		{
-			ft_stclear(&head);
+			ft_stclear(&head, free);
 			break ;
 		}
 	}

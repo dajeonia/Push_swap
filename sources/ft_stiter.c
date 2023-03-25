@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstack.c                                    :+:      :+:    :+:   */
+/*   ft_stiter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 20:34:44 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:20:45 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 13:49:54 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 17:38:30 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "stack.h"
 
-static void	ft_printnode(t_stack *node)
+void	ft_stiter(t_stack *head, void (*function)(t_stack *))
 {
-	ft_printf("%d ", *(int *)(node->data));
+	t_stack *cur;
+	int		i;
+
+	cur = head;
+	i = 0;
+	while (1)
+	{
+		function(cur);
+		cur = cur->next;
+		if (cur == head)
+			break ;
+	}
 }
 
-void	ft_printstack(t_stack *head)
+void	ft_stiter_rev(t_stack *head, void (*function)(t_stack *))
 {
-	if (head == NULL)
-		ft_printf("The Stack is Empty!");
-	else
-		ft_stiter(head, ft_printnode);
-	ft_printf("\n");
-}
+	t_stack *cur;
+	int		i;
 
-void	ft_printst_ab(t_stack **ab)
-{
-	ft_printf("[a]: ");
-	ft_printstack(ab[0]);
-	ft_printf("[b]: ");
-	ft_printstack(ab[1]);
-	ft_printf("--------------------\n");
+	cur = head->prev;
+	i = 0;
+	while (1)
+	{
+		function(cur);
+		cur = cur->prev;
+		if (cur == head)
+			break ;
+	}
 }

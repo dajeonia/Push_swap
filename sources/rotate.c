@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 13:54:17 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 18:55:02 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 19:03:10 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
+# include "push_swap.h"
 
-# include <stdlib.h>
-
-typedef struct	s_stack
+static void	ft_rotate(t_stack **head)
 {
-	void			*data;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}				t_stack;
+	if (*head)
+		*head = (*head)->next;
+	else
+		ft_printf("ERROR: The Stack is Empty\n");
+}
 
-void	ft_stpush(t_stack **head, void *data);
-void	*ft_stpop(t_stack **head);
-void	ft_stclear(t_stack **head, void (*del)(void *));
-void	ft_stiter(t_stack *head, void (*function)(t_stack *));
-void	ft_stiter_rev(t_stack *head, void (*function)(t_stack *));
+void	ra(t_stack **a, t_stack **b)
+{
+	b = a;
+	ft_rotate(a);
+}
 
-#endif
+void	rb(t_stack **a, t_stack **b)
+{
+	a = b;
+	ft_rotate(b);
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	ra(a, b);
+	rb(a, b);
+}
