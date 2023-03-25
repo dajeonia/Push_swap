@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation2.c                                       :+:      :+:    :+:   */
+/*   operation1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 19:35:48 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:36:15 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 19:35:01 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 20:58:28 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rrr(t_stack **ab)
+# include "stack.h"
+
+void	ra(t_stack **ab)
 {
-	rra(ab);
-	rrb(ab);
+	ft_rotate(&ab[0]);
+}
+
+void	rb(t_stack **ab)
+{
+	ft_rotate(&ab[1]);
+}
+void	rr(t_stack **ab)
+{
+	ra(ab);
+	rb(ab);
 }
 
 void	pa(t_stack **ab)

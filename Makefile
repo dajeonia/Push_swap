@@ -6,12 +6,13 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/25 20:22:50 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/25 21:08:24 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
-SOURCES = main.c stack_base.c stack_oper.c ft_stackprint.c
+SOURCES = main.c stack_base.c stack_oper.c stack_print.c \
+		  oper1.c oper2.c oper3.c
 INCLUDES = stack.h
 LIBFT = libft.a
 LIBFTPRINTF = libftprintf.a

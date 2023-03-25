@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 20:22:03 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 21:06:46 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 	t_stack	*test;
 
 	test = ft_parser(argc, argv);
+	ft_stackprint(test);
+	ft_swap(&test);
 	ft_stackprint(test);
 	return (0);
 }
