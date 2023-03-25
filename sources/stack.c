@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/24 21:03:54 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 11:35:10 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,24 @@ t_stack	*ft_stnew(void *data)
 	}
 	return (node);
 }
-# include "../ft_printf/sources/ft_printf.h"
 
 void	ft_stpush(t_stack **head, void *data)
 {
 	t_stack	*node;
-
+	
 	node = ft_stnew(data);
 	if (node)
 	{
-		node->prev = (*head)->prev;
-		node->next = *head;
-		(node->prev)->next = node;
-		(node->next)->prev = node;
-		*head = node;
+		if (*head == NULL)
+			*head = node;
+		else
+		{
+			node->prev = (*head)->prev;
+			node->next = *head;
+			(node->prev)->next = node;
+			(node->next)->prev = node;
+			*head = node;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/24 21:03:54 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 11:36:16 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,25 @@ void	pa(t_stack *a, t_stack *b)
 t_stack	*ft_parser(int argc, char **argv)
 {
 	t_stack	*head;
-	int		*temp;
+	int		*number;
 	int		i;
 
+	head = NULL;
 	i = 1;
 	while (i < argc)
 	{
-		temp = (int *)malloc(sizeof(int));
-		if (head == NULL)
-			ft_stclear(&head);
-		*temp = ft_atoi(argv[i]);
-		if (i == 1)
-			head = ft_stnew((void *)temp);
+		number = (int *)malloc(sizeof(int));
+		if (number != NULL)
+		{
+			*number = ft_atoi(argv[i]);
+			ft_stpush(&head, number);
+			i++;
+		}
 		else
-			ft_stpush(&head, (void *)temp);
-		i++;
+		{
+			ft_stclear(&head);
+			break ;
+		}
 	}
 	return (head);
 }
