@@ -6,34 +6,22 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:56:55 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:28:15 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 20:22:03 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "stack.h"
+# include "lib.h"
+
 
 t_stack	*ft_parser(int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
-	t_stack	*ab[2];
-	int		i;
+	t_stack	*test;
 
-	ab[0] = ft_parser(argc, argv);
-	ab[1] = NULL;
-	i = 0;
-	ft_printst_ab(ab);
-	while (i++ < 5)
-	{
-		ra(ab);
-		ft_printst_ab(ab);
-	}
-	i = 0;
-	while (i++ < 2)
-	{
-		rra(ab);
-		ft_printst_ab(ab);
-	}
+	test = ft_parser(argc, argv);
+	ft_stackprint(test);
 	return (0);
 }
 
@@ -51,7 +39,7 @@ t_stack	*ft_parser(int argc, char **argv)
 		if (number != NULL)
 		{
 			*number = ft_atoi(argv[i]);
-			ft_stpush(&head, number);
+			ft_push(&head, number);
 			i++;
 		}
 		else

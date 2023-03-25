@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_stackprint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 19:26:21 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:26:22 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 20:00:59 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 20:23:22 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "stack.h"
+# include "lib.h"
 
-static void	ft_push_to(t_stack **from, t_stack **to)
+static void	ft_print_node(t_stack *node);
+
+void	ft_stackprint(t_stack *head)
 {
-	if (*from)
-		ft_stpush(to, ft_stpop(from));
+	if (head)
+		ft_iterator(head, ft_print_node, 1);
 	else
-		ft_printf("ERROR: The Stack is Empty\n");
+		ft_printf("The Stack is Empty!");
+	ft_printf("\n");
 }
 
-void	pa(t_stack **ab)
+static void	ft_print_node(t_stack *node)
 {
-	ft_push_to(&ab[1], &ab[0]);
-}
-
-void	pb(t_stack **ab)
-{
-	ft_push_to(&ab[0], &ab[1]);
+	ft_printf("%d ", *(int *)(node->data));
 }

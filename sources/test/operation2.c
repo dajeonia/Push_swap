@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stiter.c                                        :+:      :+:    :+:   */
+/*   operation2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 13:49:54 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 17:38:30 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 19:35:48 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 19:36:15 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
-
-void	ft_stiter(t_stack *head, void (*function)(t_stack *))
+void	rrr(t_stack **ab)
 {
-	t_stack *cur;
-	int		i;
-
-	cur = head;
-	i = 0;
-	while (1)
-	{
-		function(cur);
-		cur = cur->next;
-		if (cur == head)
-			break ;
-	}
+	rra(ab);
+	rrb(ab);
 }
 
-void	ft_stiter_rev(t_stack *head, void (*function)(t_stack *))
+void	pa(t_stack **ab)
 {
-	t_stack *cur;
-	int		i;
+	ft_push_to(&ab[1], &ab[0]);
+}
 
-	cur = head->prev;
-	i = 0;
-	while (1)
-	{
-		function(cur);
-		cur = cur->prev;
-		if (cur == head)
-			break ;
-	}
+void	pb(t_stack **ab)
+{
+	ft_push_to(&ab[0], &ab[1]);
 }

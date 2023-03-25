@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 18:44:15 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/25 20:20:48 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_stack	*ft_stnew(void *data)
 	return (node);
 }
 
-void	ft_stpush(t_stack **head, void *data)
+void	ft_push(t_stack **head, void *data)
 {
 	t_stack	*node;
 	
@@ -46,7 +46,7 @@ void	ft_stpush(t_stack **head, void *data)
 	}
 }
 
-void	*ft_stpop(t_stack **head)
+void	*ft_pop(t_stack **head)
 {
 	t_stack	*cur;
 	void	*pop;
@@ -63,4 +63,10 @@ void	*ft_stpop(t_stack **head)
 	pop = cur->data;
 	free(cur);
 	return (pop);
+}
+
+void	ft_stclear(t_stack **head, void (*del)(void *))
+{
+	while (*head != NULL)
+		del(ft_pop(head));
 }

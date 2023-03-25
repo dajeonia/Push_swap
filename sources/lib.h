@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stclear.c                                       :+:      :+:    :+:   */
+/*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 13:51:44 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 13:54:21 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 20:19:33 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 20:20:06 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+#ifndef LIB_H
 
-void	ft_stclear(t_stack **head, void (*del)(void *))
-{
-	while (*head != NULL)
-		del(ft_stpop(head));
-}
+# include "../libft/libft.h"
+# include "../ft_printf/sources/ft_printf.h"
+
+#endif

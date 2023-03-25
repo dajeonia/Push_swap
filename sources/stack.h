@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 08:24:13 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 13:54:17 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 20:06:49 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 20:16:10 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ typedef struct	s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-void	ft_stpush(t_stack **head, void *data);
-void	*ft_stpop(t_stack **head);
+void	ft_push(t_stack **head, void *data);
+void	*ft_pop(t_stack **head);
 void	ft_stclear(t_stack **head, void (*del)(void *));
-void	ft_stiter(t_stack *head, void (*function)(t_stack *));
-void	ft_stiter_rev(t_stack *head, void (*function)(t_stack *));
+
+void	ft_swap(t_stack **head);
+void	ft_rotate(t_stack **head);
+void	ft_rrotate(t_stack **head);
+void	ft_push_to(t_stack **from, t_stack **to);
+void	ft_iterator(t_stack *head, void (*f)(t_stack *), int flag);
+
+void	ft_stackprint(t_stack *head);
 
 #endif
+

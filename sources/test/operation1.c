@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstack.c                                    :+:      :+:    :+:   */
+/*   operation1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 20:34:44 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 19:20:45 by dajeon           ###   ########.fr       */
+/*   Created: 2023/03/25 19:35:01 by dajeon            #+#    #+#             */
+/*   Updated: 2023/03/25 19:42:20 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "operation.h"
 
-static void	ft_printnode(t_stack *node)
+void	ra(t_stack **ab)
 {
-	ft_printf("%d ", *(int *)(node->data));
+	ft_rotate(&ab[0]);
 }
 
-void	ft_printstack(t_stack *head)
+void	rb(t_stack **ab)
 {
-	if (head == NULL)
-		ft_printf("The Stack is Empty!");
-	else
-		ft_stiter(head, ft_printnode);
-	ft_printf("\n");
+	ft_rotate(&ab[1]);
+}
+void	rr(t_stack **ab)
+{
+	ra(ab);
+	rb(ab);
 }
 
-void	ft_printst_ab(t_stack **ab)
+void	rra(t_stack **ab)
 {
-	ft_printf("[a]: ");
-	ft_printstack(ab[0]);
-	ft_printf("[b]: ");
-	ft_printstack(ab[1]);
-	ft_printf("--------------------\n");
+	ft_rrotate(&ab[0]);
+}
+
+void	rrb(t_stack **ab)
+{
+	ft_rrotate(&ab[1]);
 }
