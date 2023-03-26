@@ -18,12 +18,10 @@ static size_t	ft_strlen(const char *s);
 int	ft_putnbr_base(const long n, char *base)
 {
 	int	size;
-	int	sign;
 	int	count;
 
 	count = 0;
 	size = ft_strlen(base);
-	sign = 1 * (n >= 0) + -1 * (n < 0);
 	if (n / size != 0)
 		count = ft_count(count, ft_putnbr_base(n / size, base));
 	else if (n < 0)

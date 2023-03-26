@@ -23,8 +23,8 @@ void	rb(t_stack **ab)
 }
 void	rr(t_stack **ab)
 {
-	ra(ab);
-	rb(ab);
+	ft_rotate(&ab[0]);
+	ft_rotate(&ab[1]);
 }
 
 void	pa(t_stack **ab)

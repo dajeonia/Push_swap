@@ -15,12 +15,18 @@
 
 static void	ft_print_node(t_stack *node);
 
+void	ft_operprint(t_stack **head, void (*f)(t_stack **))
+{
+	f(head);
+	ft_stackprint(*head);
+}
+
 void	ft_stackprint(t_stack *head)
 {
 	if (head)
 		ft_iterator(head, ft_print_node, 1);
 	else
-		ft_printf("The Stack is Empty!");
+		ft_printf("-");
 	ft_printf("\n");
 }
 

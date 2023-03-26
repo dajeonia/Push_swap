@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 # include "stack.h"
+# include "lib.h"
 
 void	rra(t_stack **ab)
 {
@@ -24,7 +25,20 @@ void	rrb(t_stack **ab)
 
 void	rrr(t_stack **ab)
 {
-	rra(ab);
-	rrb(ab);
+	ft_rrotate(&ab[0]);
+	ft_rrotate(&ab[1]);
 }
 
+void	prnt(t_stack **ab)
+{
+	ft_printf("A: ");
+	ft_stackprint(ab[0]);
+	ft_printf("B: ");
+	ft_stackprint(ab[1]);
+}
+
+void	oprnt(t_stack **ab, void (*f)(t_stack **))
+{
+	f(ab);
+	prnt(ab);
+}

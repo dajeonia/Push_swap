@@ -14,9 +14,8 @@
 
 # include <stdlib.h>
 
-# include "../libft/libft.h"
-# include "../ft_printf/sources/ft_printf.h"
 # include "stack.h"
+# include "lib.h"
 
 void	pa(t_stack **ab);
 void	pb(t_stack **ab);
@@ -32,5 +31,9 @@ void	rrr(t_stack **ab);
 void	sa(t_stack **ab);
 void	sb(t_stack **ab);
 void	ss(t_stack **ab);
+
+void	prnt(t_stack **ab);
+void	oprnt(t_stack **ab, void (*f)(t_stack **));
+void	init(t_stack **ab);
 
 #endif

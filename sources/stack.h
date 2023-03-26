@@ -29,10 +29,10 @@ void	ft_swap(t_stack **head);
 void	ft_rotate(t_stack **head);
 void	ft_rrotate(t_stack **head);
 void	ft_push_to(t_stack **from, t_stack **to);
-
 void	ft_iterator(t_stack *head, void (*f)(t_stack *), int flag);
 
 void	ft_stackprint(t_stack *head);
+void	ft_operprint(t_stack **head, void (*f)(t_stack **));
 
 #endif
 

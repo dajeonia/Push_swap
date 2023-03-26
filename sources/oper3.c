@@ -27,3 +27,9 @@ void	ss(t_stack **ab)
 	ft_swap(&ab[0]);
 	ft_swap(&ab[1]);
 }
+
+void	init(t_stack **ab)
+{
+	ab[0] = NULL;
+	ab[1] = NULL;
+}

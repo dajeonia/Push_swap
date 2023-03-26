@@ -10,20 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+# include "push_swap.h"
 # include "lib.h"
-
 
 t_stack	*ft_parser(int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
-	t_stack	*test;
+	t_stack	*ab[2];
 
-	test = ft_parser(argc, argv);
-	ft_stackprint(test);
-	ft_swap(&test);
-	ft_stackprint(test);
+	init(ab);
+	ab[0] = ft_parser(argc, argv);
 	return (0);
 }
 

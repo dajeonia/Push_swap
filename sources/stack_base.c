@@ -52,16 +52,19 @@ void	*ft_pop(t_stack **head)
 	void	*pop;
 
 	cur = *head;
-	if (cur == cur->next)
-		*head = NULL;
-	else
+	if (cur != NULL)
 	{
 		(cur->next)->prev = cur->prev;
 		(cur->prev)->next = cur->next;
-		*head = cur->next;
+		if (cur == cur->next)
+			*head = NULL;
+		else
+			*head = cur->next;
+		pop = cur->data;
+		free(cur);
 	}
-	pop = cur->data;
-	free(cur);
+	else
+		pop = NULL;
 	return (pop);
 }
 
