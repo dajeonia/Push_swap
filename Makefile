@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 09:00:32 by dajeon            #+#    #+#              #
-#    Updated: 2023/03/26 20:52:51 by dajeon           ###   ########.fr        #
+#    Updated: 2023/03/26 21:39:16 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ $(LIBFTPRINTF):
 $(LIBGNL): 
 	$(MAKE) -j3 -C $(LIB_DIR3) all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $< -c -I $(SRC_DIR) -o $@
 
 $(OBJ_DIR):
