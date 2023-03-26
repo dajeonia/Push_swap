@@ -6,11 +6,11 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:36:19 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 21:04:54 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:29:09 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+#include "stack.h"
 
 void	sa(t_stack **ab)
 {

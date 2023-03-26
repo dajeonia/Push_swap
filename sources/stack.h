@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:06:49 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 21:06:47 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:30:55 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 # include <stdlib.h>
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	void			*data;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-}				t_stack;
+}					t_stack;
 
 void	ft_push(t_stack **head, void *data);
 void	*ft_pop(t_stack **head);
@@ -35,4 +35,3 @@ void	ft_stackprint(t_stack *head);
 void	ft_operprint(t_stack **head, void (*f)(t_stack **));
 
 #endif
-

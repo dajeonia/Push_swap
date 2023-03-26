@@ -6,12 +6,12 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:58:58 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 20:59:01 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:29:23 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
-# include "lib.h"
+#include "stack.h"
+#include "lib.h"
 
 static void	ft_print_node(t_stack *node);
 

@@ -6,11 +6,11 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:43:04 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 20:21:57 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:29:20 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+#include "stack.h"
 
 void	ft_push_to(t_stack **from, t_stack **to)
 {

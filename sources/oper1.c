@@ -6,11 +6,11 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:35:01 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 20:58:28 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:29:43 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+#include "stack.h"
 
 void	ra(t_stack **ab)
 {
@@ -21,6 +21,7 @@ void	rb(t_stack **ab)
 {
 	ft_rotate(&ab[1]);
 }
+
 void	rr(t_stack **ab)
 {
 	ft_rotate(&ab[0]);

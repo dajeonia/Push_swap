@@ -6,16 +6,16 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/25 20:20:48 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/26 18:31:14 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "stack.h"
+#include "stack.h"
 
 static t_stack	*ft_stnew(void *data)
 {
 	t_stack	*node;
-	
+
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (node)
 	{
@@ -29,7 +29,7 @@ static t_stack	*ft_stnew(void *data)
 void	ft_push(t_stack **head, void *data)
 {
 	t_stack	*node;
-	
+
 	node = ft_stnew(data);
 	if (node)
 	{
