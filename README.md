@@ -1,0 +1,41 @@
+# Push_swap
+- [[42]], [[Push_swap]]
+- 내용
+	- [[Push_swap/Readme]]
+	- [[Push_swap/Directories]]
+---
+## Functions
+- Makefile
+- sources
+	- stack
+		- ft_stack.h
+			- stack_base.c
+				- ft_stnew
+				- ft_push: 들어오는 헤더는 꼭 NULL로 초기화
+				- ft_pop
+				- ft_stclear: 에러 시 초기화
+			- stack_oper.c
+				- ft_push_to
+				- ft_rotate
+				- ft_rrotate
+				- ft_swap
+				- ft_iterator.c
+			- stack_print.c
+				- ft_stackprint.c
+				- ft_operprint.c
+		- push_swap.h: `stack **ab`
+			- oper1.c
+			- oper2.c
+			- oper3.c
+		- main.c
+			- parser.c
+---
+- 버그 모음
+	- `**ab`
+		- ab[0] = a;
+			- &ab[0] = &a;
+		- ab[1] = b;
+	- `**a`
+		- `&a`: a의 주소값
+ 원래 보내야 하는 건 포인터
+- 그래야 포인터 값을 바꿔 주거든
