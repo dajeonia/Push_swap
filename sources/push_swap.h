@@ -6,13 +6,11 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:44:28 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/26 18:28:28 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/03/27 15:34:10 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-
-# include <stdlib.h>
 
 # include "stack.h"
 # include "lib.h"
@@ -35,5 +33,9 @@ void	rrr(t_stack **ab);
 void	sa(t_stack **ab);
 void	sb(t_stack **ab);
 void	ss(t_stack **ab);
+
+void	ft_tester(t_stack **ab);
+void	ft_convert(t_stack **ab, char *oper);
+t_stack	*ft_parser(int argc, char **argv);
 
 #endif
