@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:43:04 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/26 18:29:20 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/04/15 19:44:45 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,5 @@ void	ft_swap(t_stack **head)
 		ft_rotate(head);
 		ft_push_to(&c, head);
 		ft_rrotate(head);
-	}
-}
-
-void	ft_iterator(t_stack *head, void (*f)(t_stack *), int flag)
-{
-	t_stack	*cur;
-
-	cur = head;
-	if (flag)
-	{
-		while (1)
-		{
-			f(cur);
-			cur = cur->next;
-			if (cur == head)
-				break ;
-		}
-	}
-	else
-	{
-		while (1)
-		{
-			f(cur);
-			cur = cur->prev;
-			if (cur == head)
-				break ;
-		}
 	}
 }

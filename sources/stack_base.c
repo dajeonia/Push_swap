@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:56:02 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/26 18:31:14 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/04/15 20:23:02 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,12 @@ void	ft_stclear(t_stack **head, void (*del)(void *))
 {
 	while (*head != NULL)
 		del(ft_pop(head));
+}
+
+int	ft_stdata(t_stack *node)
+{
+	int	data;
+
+	data = *(int *)(node->data);
+	return (data);
 }

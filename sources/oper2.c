@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:35:48 by dajeon            #+#    #+#             */
-/*   Updated: 2023/03/26 18:29:06 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/04/15 20:07:41 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	rrr(t_stack **ab)
 void	prnt(t_stack **ab)
 {
 	ft_printf("A: ");
-	ft_stackprint(ab[0]);
+	ft_stprint(ab[0]);
 	ft_printf("B: ");
-	ft_stackprint(ab[1]);
+	ft_stprint(ab[1]);
 }
 
 void	oprnt(t_stack **ab, void (*f)(t_stack **))
