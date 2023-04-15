@@ -6,29 +6,32 @@
 ---
 ## Functions
 - Makefile
-- sources
-	- stack
-		- ft_stack.h
-			- stack_base.c
-				- ft_stnew
-				- ft_push: 들어오는 헤더는 꼭 NULL로 초기화
-				- ft_pop
-				- ft_stclear: 에러 시 초기화
-			- stack_oper.c
-				- ft_push_to
-				- ft_rotate
-				- ft_rrotate
-				- ft_swap
-				- ft_iterator.c
-			- stack_print.c
-				- ft_stackprint.c
-				- ft_operprint.c
-		- push_swap.h: `stack **ab`
-			- oper1.c
-			- oper2.c
-			- oper3.c
-		- main.c
-			- parser.c
+- ft_stack.h
+	- stack_base.c
+		- ft_stnew
+		- ft_push: 들어오는 헤더는 꼭 NULL로 초기화
+		- ft_pop
+		- ft_stdata
+		- ft_stclear: 에러 시 초기화
+	- stack_oper.c : ft_push ft_pop
+		- ft_push_to
+		- ft_rotate
+		- ft_rrotate
+		- ft_swap
+	- stack_find.c:
+		- ft_stack.c : ft_stdata
+		- ft_stfind.c : ft_stdata
+		- ft_stsize.c
+	- stack_print.c
+		- ft_ndprint.c : ft_stdata
+		- ft_stprint.c
+		- ft_opprint.c
+		- ft_iterator.c
+- push_swap.h: `stack **ab`
+	- oper[1-3].c
+		- 11: pa, pb, sa, sb, ss, ..., rrr
+- main.c
+	- ft_tester.c
 ---
 - 버그 모음
 	- `**ab`
